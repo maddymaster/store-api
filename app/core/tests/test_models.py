@@ -13,7 +13,7 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(user.email, email)
-        self.assetTrue(user.check_password(password))
+        self.assertTrue(user.check_password(password))
 
     
     def test_new_user_email_normalized(self):
