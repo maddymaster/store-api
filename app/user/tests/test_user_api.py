@@ -9,7 +9,7 @@ from rest_framework import status
 CREATE_USER_URL = reverse('user:create')
 
 
-def create_user(**prams):
+def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
 
@@ -24,7 +24,7 @@ class PublicUserApiTests(TestCase):
         payload = {
             'email': 'test@maddy.com',
             'password': 'testpass',
-            'name': 'Test name'
+            'name': 'Test'
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
@@ -35,7 +35,7 @@ class PublicUserApiTests(TestCase):
 
     def test_user_exists(self):
         """ Test creating a user that already exists fails """
-        payload = {'email': 'test@maddy.com', 'password': 'testpass'}
+        payload = {'email': 'test@maddy.com', 'password': 'testpass', 'name': 'Test',}
         create_user(**payload)
 
         res = self.client.post(CREATE_USER_URL, payload)
@@ -44,7 +44,7 @@ class PublicUserApiTests(TestCase):
     
     def test_password_too_short(self):
         """ Test that the password must be more than 5 characters """
-        payload = {'email': 'test@maddy.com', 'password': 'pw'}
+        payload = {'email': 'test@maddy.com', 'password': 'pw', 'name': 'Test',}
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
