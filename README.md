@@ -11,3 +11,5 @@ To run this file, first build docker-compose and then run the docker.
 Note: To run tests use --rm as it would remove the container after test. For example "docker-compose run --rm app sh -c "python manage.py test && flake8"
 
 Visit the url 127.0.0.1:8000/admin to visit admin page.
+
+PS: I have paused working on this for a while due to increased workload at office.
