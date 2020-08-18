@@ -5,6 +5,7 @@ Building the backend(REST API) of a maketplace, however, implementing
 3. TravisCI for continuous build and deploy
 4. TDD - test driven development
 5. Mocking
+6. BDD 
 
 To run this file, first build docker-compose and then run the docker.
 
